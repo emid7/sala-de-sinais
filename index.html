@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Sala de Sinais - Roleta</title>
+  <style>
+    body { font-family: Arial; padding: 20px; background: #f4f4f4; }
+    header { background: #333; color: white; padding: 10px; text-align: center; }
+    .container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px #ccc; max-width: 600px; margin: auto; }
+    .sinal { background: #eee; margin-top: 10px; padding: 10px; border-radius: 5px; text-align: center; }
+    input, button { padding: 10px; border-radius: 5px; border: 1px solid #ccc; margin-top: 10px; }
+    button { background: #333; color: white; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <header><h1>Sala de Sinais</h1></header>
+  <div class="container">
+    <h3>Últimos Sinais</h3>
+    <div id="sinais">
+      <div class="sinal">🔴 Entrada recomendada: Vermelho</div>
+      <div class="sinal">⚫ Entrada recomendada: Preto</div>
+    </div>
+    <input type="text" id="resultadoInput" placeholder="Resultado: Vermelho, Preto, Branco">
+    <button onclick="adicionarResultado()">Adicionar Resultado</button>
+  </div>
+
+  <script>
+    function adicionarResultado() {
+      const input = document.getElementById('resultadoInput');
+      const valor = input.value;
+      if (valor) {
+        const sinal = document.createElement('div');
+        sinal.classList.add('sinal');
+        sinal.textContent = `Resultado: ${valor}`;
+        document.getElementById('sinais').appendChild(sinal);
+        input.value = '';
+      }
+    }
+  </script>
+</body>
+</html>
